@@ -1,6 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel
 from datetime import date
+
 class Livro(BaseModel):
     id: str
     titulo: str
@@ -14,8 +15,7 @@ class User(BaseModel):
     livros: list[Livro]
 
 class Emprestimo(BaseModel):
-    id: str
-    user_id: User
-    livro_id: Livro
+    user: User
+    livro: Livro
     data_emp: date
     data_dev: Optional[date] = None
